@@ -36,6 +36,8 @@ public:
 			
 			if (agent->sceneNum == 1 && (agent->position.x == 1280 || agent->position.x == 0 || agent->position.y == 768 || agent->position.y == 0))
 				agent->enableBypass = true;
+			if (agent->sceneNum == 1 && sqrt(pow(agent->position.x - agent->target.x, 2) + pow(agent->position.y - agent->target.y, 2)) <= 100)
+				agent->enableBypass = false;
 
 			if(agent->sceneNum == 1 && ((agent->position.x <= 1280 && agent->position.x > 1180) || (agent->position.x >= 0 && agent->position.x <= 100) || (agent->position.y > 0 && agent->position.y <= 100) || (agent->position.y <= 768 && agent->position.y > 700)) && agent->enableBypass)
 			velocity = agent->getVelocity() - acceleration;
