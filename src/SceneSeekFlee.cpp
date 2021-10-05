@@ -16,6 +16,7 @@ SceneSeekFlee::SceneSeekFlee()
 	agent->setPosition(Vector2D(600,50));
 	agent->setTarget(Vector2D(900, 650));
 	agent->loadSpriteTexture("../res/soldier.png", 4);
+	agent->sceneNum = 2;
 	agents.push_back(agent); 
 	target = Vector2D(100, 100);
 }
