@@ -1,10 +1,7 @@
-﻿  Agent.cpp
-C:\Users\xavi\Documents\GitHub\IA\src\Agent.cpp(18,1): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Flee.cpp
-  SceneFlee.cpp
-  SceneSeek.cpp
-  SceneSeekFlee.cpp
-  Seek.cpp
-  main.cpp
-  Generando código...
+﻿  SceneSeekFlee.cpp
+C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(16,41): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
+C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(16,34): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
+C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(86,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(87,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(89,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   SDL_Steering_Behaviors.vcxproj -> C:\Users\xavi\Documents\GitHub\IA\bin\SDL_Steering_Behaviors.exe

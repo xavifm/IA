@@ -18,16 +18,11 @@ public:
 		virtual ~SteeringBehavior() {};
 		virtual Vector2D calculateSteeringForce(Agent* agent, float dtime)
 		{
-			//WALK AND FOLLOW THE POINT
-			if (agent->sceneNum == 0)
-				return (((agent->target - agent->position).Normalize() - agent->velocity) * agent->max_velocity) - agent->velocity;
-			else if(agent->sceneNum == 1)
-				return (((agent->position - agent->target).Normalize() - agent->velocity) * agent->max_velocity) - agent->velocity;
-			else
-				return Vector2D(0,0);
+			return Vector2D(0,0);
 		};
 		void applySteeringForce(Agent *agent, float dtime) 
 		{
+			Vector2D v2d = (agent->flockingFleePos * agent->KSeparation);
 			Vector2D steeringForce = this->calculateSteeringForce(agent, dtime);
 			steeringForce /= agent->max_velocity;
 			steeringForce *= agent->max_force;
@@ -47,7 +42,7 @@ public:
 				if (agent->enableBypass)
 				agent->enableBypass = false;
 			}
-			else if(agent->sceneNum == 0)
+			else if(agent->sceneNum == 0 || agent->sceneNum == 2)
 			velocity = agent->getVelocity() + acceleration;
 
 			velocity.Normalize();
@@ -66,8 +61,6 @@ private:
 	float mass;
 	float speed;
 	float orientation;
-	float max_force;
-	float max_velocity;
 
 	SDL_Texture *sprite_texture;
 	bool draw_sprite;
@@ -81,6 +74,14 @@ public:
 	Vector2D getPosition();
 	Vector2D getTarget();
 	Vector2D getVelocity();
+	Vector2D flockingFleePos;
+	Vector2D cohesionDir;
+	Vector2D alignmentDir;
+	float max_force;
+	float max_velocity;
+	float KSeparation;
+	float KCohesion;
+	float KAlignment;
 	float getMaxVelocity();
 	float getMaxForce();
 	float getMass();
