@@ -13,7 +13,7 @@ SceneSeekFlee::SceneSeekFlee()
 	{
 		agent = new Agent;
 		agent->setBehavior(new Seek);
-		agent->setPosition(Vector2D(599+i, 350+i));
+		agent->setPosition(Vector2D(599, 350+i));
 		agent->loadSpriteTexture("../res/zombie1.png", 8);
 		agent->sceneNum = 2;
 		agent->max_force = 2;
@@ -64,7 +64,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 	if(timer <= 0)
 		agents[agents.size() - 1]->sceneNum = 1;
 
-	/**/for (size_t o = 0; o < agents.size() - 1; o++)
+	for (size_t o = 0; o < agents.size() - 1; o++)
 	{
 		agents[o]->sceneNum = 0;
 		neighbourCount = 0;
@@ -74,7 +74,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		agents[o]->setTarget(agents[agents.size() - 1]->getPosition());
 		for (size_t i = 0; i < agents.size() - 1; i++)
 		{
-			if (i != o && sqrt(pow(agents[i]->getPosition().x - agents[o]->getPosition().x, 2) + pow(agents[i]->getPosition().y - agents[o]->getPosition().y, 2) < 100))
+			if (i != o && sqrt(pow(agents[i]->getPosition().x - agents[o]->getPosition().x, 2) + pow(agents[i]->getPosition().y - agents[o]->getPosition().y, 2) < 2000))
 			{
 				agents[o]->sceneNum = 2;
 				neighbourCount++;
@@ -95,7 +95,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		agents[o]->flockingFleePos = separationVector;
 		agents[o]->cohesionDir = cohesionDirection;
 		agents[o]->alignmentDir = alignmentDirection;
-	}/**/
+	}
 
 	agents[agents.size() - 1]->setTarget(agents[0]->getPosition());
 

@@ -1,6 +1,5 @@
 ﻿  SceneSeekFlee.cpp
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(16,41): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(16,34): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
+C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(16,39): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
 C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(86,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(87,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(89,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
