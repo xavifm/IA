@@ -1,6 +1,7 @@
 #include "SceneSeekFlee.h"
 #include "Seek.h"
 #include "Flee.h"
+#include "Flocking.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ SceneSeekFlee::SceneSeekFlee()
 	for (size_t i = 0; i < 20; i++)
 	{
 		agent = new Agent;
-		agent->setBehavior(new Seek);
+		agent->setBehavior(new Flocking);
 		agent->setPosition(Vector2D(599, 350+i));
 		agent->loadSpriteTexture("../res/zombie1.png", 8);
 		agent->sceneNum = 2;
@@ -52,7 +53,13 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		break;
 	}
 
-	Vector2D separationVector = Vector2D(0, 0);
+	Flocking flocking;
+
+	flocking.calculateSeparationVector(agents);
+	flocking.calculateCohesionVector(agents);
+	flocking.calculateAlignmentVector(agents);
+
+/*	Vector2D separationVector = Vector2D(0, 0);
 	Vector2D averagePosition = Vector2D(0, 0);
 	Vector2D cohesionDirection = Vector2D(0, 0);
 	Vector2D averageVelocity = Vector2D(0, 0);
@@ -67,6 +74,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 	for (size_t o = 0; o < agents.size() - 1; o++)
 	{
 		agents[o]->sceneNum = 0;
+		agents[o]->setBehavior(new Seek);
 		neighbourCount = 0;
 		averageVelocity = Vector2D(0, 0);
 		averagePosition = Vector2D(0, 0);
@@ -77,16 +85,16 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 			if (i != o && sqrt(pow(agents[i]->getPosition().x - agents[o]->getPosition().x, 2) + pow(agents[i]->getPosition().y - agents[o]->getPosition().y, 2) < 2000))
 			{
 				agents[o]->sceneNum = 2;
+				agents[o]->setBehavior(new Flocking);
 				neighbourCount++;
 				averageVelocity += agents[i]->getVelocity();
 				averagePosition += agents[i]->getPosition();
 				separationVector += (agents[o]->getPosition() - agents[i]->getPosition());
 			}
 		}
-		averageVelocity /= neighbourCount;
 		averagePosition /= neighbourCount;
+		averagePosition -= agents[o]->getPosition();
 		cohesionDirection = Vector2D::Normalize(averagePosition);
-		separationVector /= neighbourCount;
 		separationVector = Vector2D::Normalize(separationVector);
 		alignmentDirection = Vector2D::Normalize(averageVelocity);
 		agents[o]->KSeparation = 5000;
@@ -95,7 +103,9 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		agents[o]->flockingFleePos = separationVector;
 		agents[o]->cohesionDir = cohesionDirection;
 		agents[o]->alignmentDir = alignmentDirection;
-	}
+	}*/
+
+
 
 	agents[agents.size() - 1]->setTarget(agents[0]->getPosition());
 

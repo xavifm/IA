@@ -1,6 +1,3 @@
-﻿  SceneSeekFlee.cpp
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(16,39): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(86,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(87,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(89,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+﻿  Flocking.cpp
+C:\Users\xavi\Documents\GitHub\IA\src\Flocking.cpp(61,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   SDL_Steering_Behaviors.vcxproj -> C:\Users\xavi\Documents\GitHub\IA\bin\SDL_Steering_Behaviors.exe
