@@ -64,55 +64,6 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 	if (timer <= 0)
 		agents[agents.size() - 1]->sceneNum = 1;
 
-
-/*	Vector2D separationVector = Vector2D(0, 0);
-	Vector2D averagePosition = Vector2D(0, 0);
-	Vector2D cohesionDirection = Vector2D(0, 0);
-	Vector2D averageVelocity = Vector2D(0, 0);
-	Vector2D alignmentDirection = Vector2D(0, 0);
-	int neighbourCount = 0;
-
-	timer -= 0.05f;
-
-	if(timer <= 0)
-		agents[agents.size() - 1]->sceneNum = 1;
-
-	for (size_t o = 0; o < agents.size() - 1; o++)
-	{
-		agents[o]->sceneNum = 0;
-		agents[o]->setBehavior(new Seek);
-		neighbourCount = 0;
-		averageVelocity = Vector2D(0, 0);
-		averagePosition = Vector2D(0, 0);
-		separationVector = Vector2D(0, 0);
-		agents[o]->setTarget(agents[agents.size() - 1]->getPosition());
-		for (size_t i = 0; i < agents.size() - 1; i++)
-		{
-			if (i != o && sqrt(pow(agents[i]->getPosition().x - agents[o]->getPosition().x, 2) + pow(agents[i]->getPosition().y - agents[o]->getPosition().y, 2) < 2000))
-			{
-				agents[o]->sceneNum = 2;
-				agents[o]->setBehavior(new Flocking);
-				neighbourCount++;
-				averageVelocity += agents[i]->getVelocity();
-				averagePosition += agents[i]->getPosition();
-				separationVector += (agents[o]->getPosition() - agents[i]->getPosition());
-			}
-		}
-		averagePosition /= neighbourCount;
-		averagePosition -= agents[o]->getPosition();
-		cohesionDirection = Vector2D::Normalize(averagePosition);
-		separationVector = Vector2D::Normalize(separationVector);
-		alignmentDirection = Vector2D::Normalize(averageVelocity);
-		agents[o]->KSeparation = 5000;
-		agents[o]->KCohesion = 200;
-		agents[o]->KAlignment = 0.2f;
-		agents[o]->flockingFleePos = separationVector;
-		agents[o]->cohesionDir = cohesionDirection;
-		agents[o]->alignmentDir = alignmentDirection;
-	}*/
-
-
-
 	agents[agents.size() - 1]->setTarget(agents[0]->getPosition());
 
 	for (int i = 0; i < (int)agents.size(); i++)
