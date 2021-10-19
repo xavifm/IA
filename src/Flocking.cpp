@@ -20,7 +20,6 @@ void Flocking::calculateSeparationVector(std::vector<Agent*> &agents)
 	for (size_t o = 0; o < agents.size() - 1; o++)
 	{
 		agents[o]->sceneNum = 0;
-		agents[o]->setBehavior(new Seek);
 		int neighbourCount = 0;
 		Vector2D separationVector = Vector2D(0, 0);
 		agents[o]->setTarget(agents[agents.size() - 1]->getPosition());
@@ -29,7 +28,6 @@ void Flocking::calculateSeparationVector(std::vector<Agent*> &agents)
 			if (i != o && sqrt(pow(agents[i]->getPosition().x - agents[o]->getPosition().x, 2) + pow(agents[i]->getPosition().y - agents[o]->getPosition().y, 2) < 2000))
 			{
 				agents[o]->sceneNum = 2;
-				agents[o]->setBehavior(new Flocking);
 				neighbourCount++;
 				separationVector += (agents[o]->getPosition() - agents[i]->getPosition());
 			}
@@ -45,7 +43,6 @@ void Flocking::calculateCohesionVector(std::vector<Agent*> &agents)
 	{
 		Vector2D averagePosition = Vector2D(0, 0);
 		agents[o]->sceneNum = 0;
-		agents[o]->setBehavior(new Seek);
 		int neighbourCount = 0;
 		agents[o]->setTarget(agents[agents.size() - 1]->getPosition());
 		for (size_t i = 0; i < agents.size() - 1; i++)
@@ -53,7 +50,6 @@ void Flocking::calculateCohesionVector(std::vector<Agent*> &agents)
 			if (i != o && sqrt(pow(agents[i]->getPosition().x - agents[o]->getPosition().x, 2) + pow(agents[i]->getPosition().y - agents[o]->getPosition().y, 2) < 2000))
 			{
 				agents[o]->sceneNum = 2;
-				agents[o]->setBehavior(new Flocking);
 				neighbourCount++;
 				averagePosition += agents[i]->getPosition();
 			}

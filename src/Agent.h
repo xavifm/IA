@@ -20,37 +20,7 @@ public:
 		{
 			return Vector2D(0,0);
 		};
-		void applySteeringForce(Agent *agent, float dtime) 
-		{
-			Vector2D v2d = (agent->flockingFleePos * agent->KSeparation);
-			Vector2D steeringForce = this->calculateSteeringForce(agent, dtime);
-			steeringForce /= agent->max_velocity;
-			steeringForce *= agent->max_force;
-			Vector2D acceleration = steeringForce / agent->getMass();
-			Vector2D velocity;
-			
-			if (agent->sceneNum == 1 && (agent->position.x == 1280 || agent->position.x == 0 || agent->position.y == 768 || agent->position.y == 0))
-				agent->enableBypass = true;
-			if (agent->sceneNum == 1 && sqrt(pow(agent->position.x - agent->target.x, 2) + pow(agent->position.y - agent->target.y, 2)) <= 100)
-				agent->enableBypass = false;
-
-			if(agent->sceneNum == 1 && ((agent->position.x <= 1280 && agent->position.x > 1180) || (agent->position.x >= 0 && agent->position.x <= 100) || (agent->position.y > 0 && agent->position.y <= 100) || (agent->position.y <= 768 && agent->position.y > 700)) && agent->enableBypass)
-			velocity = agent->getVelocity() - acceleration;
-			else if(agent->sceneNum == 1) 
-			{
-				velocity = agent->getVelocity() + acceleration;
-				if (agent->enableBypass)
-				agent->enableBypass = false;
-			}
-			else if(agent->sceneNum == 0 || agent->sceneNum == 2)
-			velocity = agent->getVelocity() + acceleration;
-
-			velocity.Normalize();
-			velocity *= agent->getMaxVelocity();
-			agent->setVelocity(velocity);
-
-			agent->setPosition(agent->getPosition() + agent->getVelocity() * dtime);
-		};
+		void applySteeringForce(Agent* agent, float dtime);;
 	};
 private:
 	SteeringBehavior *steering_behaviour;

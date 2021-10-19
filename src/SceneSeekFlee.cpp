@@ -59,6 +59,12 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 	flocking.calculateCohesionVector(agents);
 	flocking.calculateAlignmentVector(agents);
 
+	timer -= 0.05f;
+
+	if (timer <= 0)
+		agents[agents.size() - 1]->sceneNum = 1;
+
+
 /*	Vector2D separationVector = Vector2D(0, 0);
 	Vector2D averagePosition = Vector2D(0, 0);
 	Vector2D cohesionDirection = Vector2D(0, 0);
