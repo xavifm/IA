@@ -131,20 +131,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Agent.cpp" />
+    <ClCompile Include="..\src\AlignmentVector.cpp" />
+    <ClCompile Include="..\src\cohesionVector.cpp" />
     <ClCompile Include="..\src\Flee.cpp" />
-    <ClCompile Include="..\src\Flocking.cpp" />
+    <ClCompile Include="..\src\WheightedBlending.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\SceneFlee.cpp" />
     <ClCompile Include="..\src\SceneSeekFlee.cpp" />
     <ClCompile Include="..\src\SceneSeek.cpp" />
     <ClCompile Include="..\src\SDL_SimpleApp.cpp" />
     <ClCompile Include="..\src\Seek.cpp" />
+    <ClCompile Include="..\src\SeparationVector.cpp" />
     <ClCompile Include="..\src\utils .cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Agent.h" />
+    <ClInclude Include="..\src\AlignmentVector.h" />
+    <ClInclude Include="..\src\cohesionVector.h" />
     <ClInclude Include="..\src\Flee.h" />
-    <ClInclude Include="..\src\Flocking.h" />
+    <ClInclude Include="..\src\WheightedBlending.h" />
+    <ClInclude Include="..\src\SeparationVector.h" />
     <ClInclude Include="..\src\utils.h" />
     <ClInclude Include="..\src\Scene.h" />
     <ClInclude Include="..\src\SceneFlee.h" />

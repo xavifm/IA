@@ -1,15 +1,15 @@
 #pragma once
-#include "../src/Agent.h"
+#include "Agent.h"
 #include "Seek.h"
 #include "Flee.h"
 #include <vector>
 
-class Flocking :
+class WheightedBlending :
 	public Agent::SteeringBehavior
 {
 public:
-	Flocking();
-	~Flocking();
+	WheightedBlending(Agent* agent, Vector2D separation, Vector2D cohesion, Vector2D alignment, float Kseparation, float Kcohesion, float Kalignment);
+	~WheightedBlending();
 	Vector2D calculateSteeringForce(Agent* agent, float dtime);
 	void calculateSeparationVector(std::vector<Agent*>& agents);
 	void calculateCohesionVector(std::vector<Agent*>& agents);

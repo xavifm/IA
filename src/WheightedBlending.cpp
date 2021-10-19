@@ -1,21 +1,27 @@
-#include "Flocking.h"
+#include "WheightedBlending.h"
 
-Flocking::Flocking()
+WheightedBlending::WheightedBlending(Agent* agent, Vector2D separation, Vector2D cohesion, Vector2D alignment, float Kseparation, float Kcohesion, float Kalignment)
+{
+	agent->flockingFleePos = separation;
+	agent->KSeparation = Kseparation;
+	agent->cohesionDir = cohesion;
+	agent->KCohesion = Kcohesion;
+	agent->alignmentDir = alignment;
+	agent->KAlignment = Kalignment;
+}
+
+WheightedBlending::~WheightedBlending()
 {
 }
 
-Flocking::~Flocking()
-{
-}
-
-Vector2D Flocking::calculateSteeringForce(Agent* agent, float dtime)
+Vector2D WheightedBlending::calculateSteeringForce(Agent* agent, float dtime)
 {
 	return (agent->flockingFleePos * agent->KSeparation)
 		+ (agent->cohesionDir * agent->KCohesion)
 		+ (agent->alignmentDir * agent->KAlignment);
 }
 
-void Flocking::calculateSeparationVector(std::vector<Agent*> &agents)
+void WheightedBlending::calculateSeparationVector(std::vector<Agent*> &agents)
 {
 	for (size_t o = 0; o < agents.size() - 1; o++)
 	{
@@ -37,7 +43,7 @@ void Flocking::calculateSeparationVector(std::vector<Agent*> &agents)
 	}
 }
 
-void Flocking::calculateCohesionVector(std::vector<Agent*> &agents)
+void WheightedBlending::calculateCohesionVector(std::vector<Agent*> &agents)
 {
 	for (size_t o = 0; o < agents.size() - 1; o++)
 	{
@@ -61,7 +67,7 @@ void Flocking::calculateCohesionVector(std::vector<Agent*> &agents)
 	}
 }
 
-void Flocking::calculateAlignmentVector(std::vector<Agent*>& agents) 
+void WheightedBlending::calculateAlignmentVector(std::vector<Agent*>& agents)
 {
 
 	for (size_t o = 0; o < agents.size() - 1; o++)
@@ -76,7 +82,7 @@ void Flocking::calculateAlignmentVector(std::vector<Agent*>& agents)
 			if (i != o && sqrt(pow(agents[i]->getPosition().x - agents[o]->getPosition().x, 2) + pow(agents[i]->getPosition().y - agents[o]->getPosition().y, 2) < 2000))
 			{
 				agents[o]->sceneNum = 2;
-				agents[o]->setBehavior(new Flocking);
+				//agents[o]->setBehavior(new WheightedBlending);
 				neighbourCount++;
 				averageVelocity += agents[i]->getVelocity();
 			}
