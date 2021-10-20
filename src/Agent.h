@@ -44,7 +44,7 @@ public:
 	Vector2D getPosition();
 	Vector2D getTarget();
 	Vector2D getVelocity();
-	Vector2D flockingFleePos;
+	Vector2D separationDir;
 	Vector2D cohesionDir;
 	Vector2D alignmentDir;
 	float max_force;

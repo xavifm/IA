@@ -152,7 +152,7 @@ bool Agent::loadSpriteTexture(char* filename, int _num_frames)
 
 void Agent::SteeringBehavior::applySteeringForce(Agent* agent, float dtime)
 {
-	Vector2D v2d = (agent->flockingFleePos * agent->KSeparation);
+	Vector2D v2d = (agent->separationDir * agent->KSeparation);
 	Vector2D steeringForce = this->calculateSteeringForce(agent, dtime);
 	steeringForce /= agent->max_velocity;
 	steeringForce *= agent->max_force;

@@ -66,6 +66,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 
 	//PriorityList ha de guardar un contenidor de steerings behaviours (array de steerings) després ha d'iterar per tots els behaviours i quan un retorni > que la prioritat d'aquell ho retorna
 	//per cada vector que retorna crear una classe d'interfície
+
 	for (size_t i = 0; i < agents.size()-1; i++)
 	{
 		PriorityQueue* localSteering1 = new PriorityQueue();
