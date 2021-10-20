@@ -2,9 +2,9 @@
 #include "Seek.h"
 #include "Flee.h"
 #include "WheightedBlending.h"
-#include "AlignmentVector.h"
-#include "SeparationVector.h"
-#include "cohesionVector.h"
+#include "Alignment.h"
+#include "Separation.h"
+#include "cohesion.h"
 #include "PriorityQueue.h"
 #include "SeekVector.h"
 
@@ -70,9 +70,9 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 	{
 		PriorityQueue* localSteering1 = new PriorityQueue();
 
-		Vector2D separationVector = sepVec->calculateSeparationVector(i, agents);
-		Vector2D Cohesion = cohesionVec->calculateCohesionVector(i, agents);
-		Vector2D alignmentVector = alignVector->calculateAlignmentVector(i, agents);
+		Vector2D separationVector = sepVec->calculateSteeringForce(i, agents);
+		Vector2D Cohesion = cohesionVec->calculateSteeringForce(i, agents);
+		Vector2D alignmentVector = alignVector->calculateSteeringForce(i, agents);
 
 		localSteering1->addForce(separationVector, 5000);
 		localSteering1->addForce(Cohesion, 200);
@@ -91,7 +91,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		int length2 = localSteering2->ReturnAcumulatedForcePriority().Length();
 
 		if (localSteering1->ReturnAcumulatedForcePriority().Length() > localSteering1->getPriority())
-		agents[i]->setBehavior(new WheightedBlending(agents[i], separationVector, Cohesion, alignmentVector, 5000, 200, 0.2f));
+		agents[i]->setBehavior(new WheightedBlending(agents[i], separationVector, Cohesion, alignmentVector));
 		else if (localSteering2->ReturnAcumulatedForcePriority().Length() > localSteering2->getPriority())
 		agents[i]->setBehavior(new Seek());
 	}

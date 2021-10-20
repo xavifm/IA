@@ -1,6 +1,6 @@
 ﻿  SceneSeekFlee.cpp
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(22,39): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(77,45): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(88,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\xavi\Documents\GitHub\IA\src\SceneSeekFlee.cpp(89,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  SDL_Steering_Behaviors.vcxproj -> C:\Users\xavi\Documents\GitHub\IA\bin\SDL_Steering_Behaviors.exe
+C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\SceneSeekFlee.cpp(22,39): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\SceneSeekFlee.cpp(79,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\SceneSeekFlee.cpp(90,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\SceneSeekFlee.cpp(91,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  SDL_Steering_Behaviors.vcxproj -> C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\bin\SDL_Steering_Behaviors.exe
