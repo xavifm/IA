@@ -64,6 +64,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 
 	//FALTA CREAR LA CLASSE QUE TINGUI LA LLISTA DE PRIORITATS PER COMBINAR SEEK I FLOCKING!!!!!
 
+	//PriorityList ha de guardar un contenidor de steerings behabiours (array de steerings) després ha d'iterar per tots els behaviours i quan un retorni > que la prioritat d'aquell ho retorna
 	for (size_t i = 0; i < agents.size()-1; i++)
 	{
 		PriorityQueue* localSteering1 = new PriorityQueue();
