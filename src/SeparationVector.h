@@ -9,5 +9,5 @@ class SeparationVector : public Agent::SteeringBehavior
 public:
 	SeparationVector();
 	~SeparationVector();
-	Vector2D SeparationVector::calculateSeparationVector(int agentIndex, std::vector<Agent*> agents);
+	Vector2D calculateSeparationVector(int agentIndex, std::vector<Agent*> agents);
 };

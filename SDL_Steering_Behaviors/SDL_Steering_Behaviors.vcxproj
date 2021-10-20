@@ -134,6 +134,8 @@
     <ClCompile Include="..\src\AlignmentVector.cpp" />
     <ClCompile Include="..\src\cohesionVector.cpp" />
     <ClCompile Include="..\src\Flee.cpp" />
+    <ClCompile Include="..\src\PriorityQueue.cpp" />
+    <ClCompile Include="..\src\SeekVector.cpp" />
     <ClCompile Include="..\src\WheightedBlending.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\SceneFlee.cpp" />
@@ -149,6 +151,8 @@
     <ClInclude Include="..\src\AlignmentVector.h" />
     <ClInclude Include="..\src\cohesionVector.h" />
     <ClInclude Include="..\src\Flee.h" />
+    <ClInclude Include="..\src\PriorityQueue.h" />
+    <ClInclude Include="..\src\SeekVector.h" />
     <ClInclude Include="..\src\WheightedBlending.h" />
     <ClInclude Include="..\src\SeparationVector.h" />
     <ClInclude Include="..\src\utils.h" />

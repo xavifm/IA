@@ -11,7 +11,4 @@ public:
 	WheightedBlending(Agent* agent, Vector2D separation, Vector2D cohesion, Vector2D alignment, float Kseparation, float Kcohesion, float Kalignment);
 	~WheightedBlending();
 	Vector2D calculateSteeringForce(Agent* agent, float dtime);
-	void calculateSeparationVector(std::vector<Agent*>& agents);
-	void calculateCohesionVector(std::vector<Agent*>& agents);
-	void calculateAlignmentVector(std::vector<Agent*>& agents);
 };
