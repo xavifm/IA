@@ -45,13 +45,13 @@
     <ClCompile Include="..\src\WheightedBlending.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AlignmentVector.cpp">
+    <ClCompile Include="..\src\Alignment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\cohesionVector.cpp">
+    <ClCompile Include="..\src\Cohesion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\SeparationVector.cpp">
+    <ClCompile Include="..\src\Separation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\PriorityQueue.cpp">
@@ -95,23 +95,23 @@
     <ClInclude Include="Flocking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\WheightedBlending.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\AlignmentVector.h">
+    <ClInclude Include="..\src\Alignment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\cohesionVector.h">
+    <ClInclude Include="..\src\Cohesion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\SeparationVector.h">
+    <ClInclude Include="..\src\Separation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\PriorityQueue.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\SeekVector.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\WheightedBlending.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

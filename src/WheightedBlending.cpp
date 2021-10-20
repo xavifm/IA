@@ -1,10 +1,10 @@
 #include "WheightedBlending.h"
 
-WheightedBlending::WheightedBlending(Agent* agent, Vector2D separation, Vector2D cohesion, Vector2D alignment, float Kseparation, float Kcohesion, float Kalignment)
+WheightedBlending::WheightedBlending(Agent* agent, Vector2D separation, Vector2D Cohesion, Vector2D alignment, float Kseparation, float Kcohesion, float Kalignment)
 {
 	agent->flockingFleePos = separation;
 	agent->KSeparation = Kseparation;
-	agent->cohesionDir = cohesion;
+	agent->cohesionDir = Cohesion;
 	agent->KCohesion = Kcohesion;
 	agent->alignmentDir = alignment;
 	agent->KAlignment = Kalignment;
