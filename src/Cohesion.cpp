@@ -1,26 +1,27 @@
-#include "AlignmentVector.h"
+#include "Cohesion.h"
 
-AlignmentVector::AlignmentVector()
+Cohesion::Cohesion()
 {
 }
 
-AlignmentVector::~AlignmentVector()
+Cohesion::~Cohesion()
 {
 }
 
-Vector2D AlignmentVector::calculateAlignmentVector(int agentIndex, std::vector<Agent*> agents)
+Vector2D Cohesion::calculateSteeringForce(int agentIndex, std::vector<Agent*> agents)
 {
+	Vector2D averagePosition = Vector2D(0, 0);
 	int neighbourCount = 0;
-	Vector2D averageVelocity = Vector2D(0, 0);
 	agents[agentIndex]->setTarget(agents[agents.size() - 1]->getPosition());
 	for (size_t i = 0; i < agents.size() - 1; i++)
 	{
 		if (i != agentIndex && sqrt(pow(agents[i]->getPosition().x - agents[agentIndex]->getPosition().x, 2) + pow(agents[i]->getPosition().y - agents[agentIndex]->getPosition().y, 2) < 2000))
 		{
 			neighbourCount++;
-			averageVelocity += agents[i]->getVelocity();
+			averagePosition += agents[i]->getPosition();
 		}
 	}
-	return Vector2D::Normalize(averageVelocity);
+	averagePosition /= neighbourCount;
+	averagePosition -= agents[agentIndex]->getPosition();
+	return Vector2D::Normalize(averagePosition);
 }
-

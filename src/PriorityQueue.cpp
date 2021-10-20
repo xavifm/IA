@@ -8,22 +8,33 @@ PriorityQueue::~PriorityQueue()
 {
 }
 
-void PriorityQueue::addForce(Vector2D force, int KforcePriority)
+void PriorityQueue::addSteeringBehaviourInList(Vector2D force, int KforcePriority)
 {
-	steeringForceAcumulated = steeringForceAcumulated + (force * KforcePriority);
+	Steering* localSteering = new Steering();
+	localSteering->force = force;
+	localSteering->priority = KforcePriority;
+
+	steerings.push_back(localSteering);
 }
 
-Vector2D PriorityQueue::ReturnAcumulatedForcePriority()
+Vector2D PriorityQueue::returnSteeringBehaviourByPriority()
 {
-	return steeringForceAcumulated;
+	for (size_t i = 0; i < steerings.size() -1; i++)
+	{
+		if(steerings[i]->force.Length() > steerings[i]->priority)
+		{
+			return steerings[i]->force;
+		}
+	}
+	return Vector2D(0, 0);
 }
 
-void PriorityQueue::setPriority(int priority) 
+void PriorityQueue::updateSteeringBehaviourInList(Vector2D newForce, int index)
 {
-	priorityL = priority;
+	steerings[index]->force = newForce;
 }
 
 int PriorityQueue::getPriority()
 {
-	return priorityL;
+	return 0;
 }

@@ -47,6 +47,7 @@ public:
 	Vector2D flockingFleePos;
 	Vector2D cohesionDir;
 	Vector2D alignmentDir;
+	Vector2D steeringResult;
 	float max_force;
 	float max_velocity;
 	float KSeparation;

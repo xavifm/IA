@@ -1,13 +1,15 @@
 #include "WheightedBlending.h"
 
-WheightedBlending::WheightedBlending(Agent* agent, Vector2D separation, Vector2D cohesion, Vector2D alignment, float Kseparation, float Kcohesion, float Kalignment)
+WheightedBlending::WheightedBlending(Agent* agent, Vector2D separation, Vector2D Cohesion, Vector2D alignment)
 {
 	agent->flockingFleePos = separation;
-	agent->KSeparation = Kseparation;
-	agent->cohesionDir = cohesion;
-	agent->KCohesion = Kcohesion;
+	agent->cohesionDir = Cohesion;
 	agent->alignmentDir = alignment;
-	agent->KAlignment = Kalignment;
+}
+
+WheightedBlending::WheightedBlending(Agent* agent, Vector2D steering)
+{
+	agent->steeringResult = steering;
 }
 
 WheightedBlending::~WheightedBlending()
@@ -16,7 +18,14 @@ WheightedBlending::~WheightedBlending()
 
 Vector2D WheightedBlending::calculateSteeringForce(Agent* agent, float dtime)
 {
-	return (agent->flockingFleePos * agent->KSeparation)
+<<<<<<< HEAD
+	/*return (agent->flockingFleePos * agent->KSeparation)
 		+ (agent->cohesionDir * agent->KCohesion)
-		+ (agent->alignmentDir * agent->KAlignment);
+		+ (agent->alignmentDir * agent->KAlignment);*/
+	return agent->steeringResult;
+=======
+	return (agent->flockingFleePos * KSeparation)
+		+ (agent->cohesionDir * KCohesion)
+		+ (agent->alignmentDir * KAlignment);
+>>>>>>> 0dc1669039ca99face9377dc5543e437a8391d46
 }
