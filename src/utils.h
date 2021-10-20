@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 #include <SDL.h>
 
 /* Get the resource path for resources located in res/subDir */

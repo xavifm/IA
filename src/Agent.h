@@ -38,6 +38,8 @@ private:
 	int sprite_w;
 	int sprite_h;
 
+	std::vector<Vector2D> steeringGroups;
+
 public:
 	Agent();
 	~Agent();
@@ -64,5 +66,8 @@ public:
 	bool Agent::loadSpriteTexture(char* filename, int num_frames=1);
 	int sceneNum;
 	bool enableBypass;
+	std::vector<Vector2D> GetSteeringGroups();
+	void AddSteeringGroupsForce(Vector2D force);
+	void ClearSteeringGroupsForce();
 	
 };

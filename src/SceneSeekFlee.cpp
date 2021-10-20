@@ -60,7 +60,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 
 	Separation* sepVec = new Separation();
 	Cohesion* cohesionVec = new Cohesion();
-	Alignment* alignVector = new Alignment();
+	Alignment* alignVec = new Alignment();
 
 	//FALTA CREAR LA CLASSE QUE TINGUI LA LLISTA DE PRIORITATS PER COMBINAR SEEK I FLOCKING!!!!!
 
@@ -72,14 +72,21 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		PriorityQueue* localSteering1 = new PriorityQueue();
 
 		Vector2D separationVector = sepVec->calculateSteeringForce(i, agents);
-		Vector2D Cohesion = cohesionVec->calculateSteeringForce(i, agents);
-		Vector2D alignmentVector = alignVector->calculateSteeringForce(i, agents);
+		Vector2D cohesionVector = cohesionVec->calculateSteeringForce(i, agents);
+		Vector2D alignmentVector = alignVec->calculateSteeringForce(i, agents);
 
-		localSteering1->addForce(separationVector, 5000);
-		localSteering1->addForce(Cohesion, 200);
-		localSteering1->addForce(alignmentVector, 0.2f);
+		agents[i]->AddSteeringGroupsForce(separationVector);
+		agents[i]->AddSteeringGroupsForce(cohesionVector);
+		agents[i]->AddSteeringGroupsForce(alignmentVector);
 
-		localSteering1->setPriority(4700);
+		/*localSteering1->addForce(separationVector, 5000);
+		localSteering1->addForce(cohesionVector, 200);
+		localSteering1->addForce(alignmentVector, 0.2f);*/
+
+		WheightedBlending wBlending;
+		wBlending.calculateSteeringForce(agents[i], 0);
+
+		/*localSteering1->setPriority(4700);
 
 		PriorityQueue* localSteering2 = new PriorityQueue();
 		SeekVector* seekVector = new SeekVector();
@@ -92,9 +99,9 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		int length2 = localSteering2->ReturnAcumulatedForcePriority().Length();
 
 		if (localSteering1->ReturnAcumulatedForcePriority().Length() > localSteering1->getPriority())
-		agents[i]->setBehavior(new WheightedBlending(agents[i], separationVector, Cohesion, alignmentVector));
+		agents[i]->setBehavior(new WheightedBlending(agents[i], separationVector, cohesionVector, alignmentVector));
 		else if (localSteering2->ReturnAcumulatedForcePriority().Length() > localSteering2->getPriority())
-		agents[i]->setBehavior(new Seek());
+		agents[i]->setBehavior(new Seek());*/
 	}
 
 
@@ -108,6 +115,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 	for (int i = 0; i < (int)agents.size(); i++)
 	{
 		agents[i]->update(dtime, event);
+		agents[i]->ClearSteeringGroupsForce();
 	}
 	
 }

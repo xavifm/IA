@@ -21,6 +21,6 @@ Vector2D Alignment::calculateSteeringForce(int agentIndex, std::vector<Agent*> a
 			averageVelocity += agents[i]->getVelocity();
 		}
 	}
-	return Vector2D::Normalize(averageVelocity);
+	return Vector2D::Normalize(averageVelocity) * KAlignment;
 }
 

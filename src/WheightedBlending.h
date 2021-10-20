@@ -8,7 +8,7 @@ class WheightedBlending :
 	public Agent::SteeringBehavior
 {
 public:
-	WheightedBlending(Agent* agent, Vector2D separation, Vector2D Cohesion, Vector2D alignment);
+	WheightedBlending();
 	~WheightedBlending();
 	Vector2D calculateSteeringForce(Agent* agent, float dtime);
 };

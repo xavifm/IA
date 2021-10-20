@@ -1,22 +1,3 @@
-﻿  Agent.cpp
-C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\Agent.cpp(18,1): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Alignment.cpp
-  Cohesion.cpp
-C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\Cohesion.cpp(24,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Flee.cpp
-  PriorityQueue.cpp
-C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\PriorityQueue.cpp(13,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  SceneFlee.cpp
-  SceneSeek.cpp
-  SceneSeekFlee.cpp
+﻿  SceneSeekFlee.cpp
 C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\SceneSeekFlee.cpp(22,39): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
-C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\SceneSeekFlee.cpp(80,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\SceneSeekFlee.cpp(91,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\src\SceneSeekFlee.cpp(92,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Seek.cpp
-  SeekVector.cpp
-  Separation.cpp
-  WheightedBlending.cpp
-  main.cpp
-  Generating Code...
   SDL_Steering_Behaviors.vcxproj -> C:\Users\franc\Documents\ENTI\Assignatures\Tècniques IA\Practica\AA1_SteeringBehaviors\Repositori\IA\bin\SDL_Steering_Behaviors.exe

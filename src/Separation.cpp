@@ -21,5 +21,5 @@ Vector2D Separation::calculateSteeringForce(int agentIndex, std::vector<Agent*> 
 			separationVector += (agents[agentIndex]->getPosition() - agents[i]->getPosition());
 		}
 	}
-	return Vector2D::Normalize(separationVector);
+	return Vector2D::Normalize(separationVector) * KSeparation;
 }

@@ -150,6 +150,21 @@ bool Agent::loadSpriteTexture(char* filename, int _num_frames)
 	return true;
 }
 
+std::vector<Vector2D> Agent::GetSteeringGroups()
+{
+	return steeringGroups;
+}
+
+void Agent::AddSteeringGroupsForce(Vector2D force)
+{
+	steeringGroups.push_back(force);
+}
+
+void Agent::ClearSteeringGroupsForce()
+{
+	steeringGroups.clear();
+}
+
 void Agent::SteeringBehavior::applySteeringForce(Agent* agent, float dtime)
 {
 	Vector2D v2d = (agent->separationDir * agent->KSeparation);
