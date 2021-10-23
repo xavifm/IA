@@ -13,14 +13,14 @@ float timer = 100;
 
 SceneSeekFlee::SceneSeekFlee()
 {
+	pursue = new Pursue();
 	Agent* agent;
 	for (size_t i = 0; i < 20; i++)
 	{
 		agent = new Agent;
-		agent->setBehavior(new Seek);
+		agent->setBehavior(new WheightedBlending());
 		agent->setPosition(Vector2D(599, 350+i));
 		agent->loadSpriteTexture("../res/zombie1.png", 8);
-		agent->sceneNum = 2;
 		agent->max_force = 2;
 		agent->max_velocity = agent->max_velocity;
 		agents.push_back(agent);
@@ -68,6 +68,8 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 
 	for (size_t i = 0; i < agents.size()-1; i++)
 	{
+		Vector2D pursueForce = pursue->calculateSteeringForce(agents[i], dtime);
+
 		Seek* seekOBJ = new Seek();
 		Vector2D seekVector = seekOBJ->calculateSteeringForce(agents[i], dtime);
 
@@ -82,6 +84,7 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		//PRIORITYLIST
 		PriorityQueue* priorityList = new PriorityQueue();
 		priorityList->addSteeringBehaviourInPriorityList(agents[i]->GetAllSteeringGroupsInAVector(), 4700);
+		priorityList->addSteeringBehaviourInPriorityList(pursueForce, 2);
 		priorityList->addSteeringBehaviourInPriorityList(seekVector, 1);
 
 		Vector2D priorityResult = priorityList->ReturnSteeringForceWithPriority();
@@ -94,8 +97,6 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 		//KEEPPING THE PRIORITY LIST RESULT
 		agents[i]->AddSteeringGroupsForce(priorityResult);
 		//________________________________________________
-
-		agents[i]->setBehavior(new WheightedBlending());
 	}
 
 
@@ -119,6 +120,10 @@ void SceneSeekFlee::draw()
 	for (int i = 0; i < (int)agents.size(); i++)
 	{
 		agents[i]->draw();
+	}
+	for (int i = 0; i < 2; i++)
+	{
+		draw_circle(TheApp::Instance()->getRenderer(), (int)pursue->obstacles[i].x, (int)pursue->obstacles[i].y, 15, 255, 0, 0, 255);
 	}
 }
 
