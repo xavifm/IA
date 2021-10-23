@@ -155,6 +155,16 @@ std::vector<Vector2D> Agent::GetSteeringGroups()
 	return steeringGroups;
 }
 
+Vector2D Agent::GetAllSteeringGroupsInAVector() 
+{
+	Vector2D allSteerings = Vector2D(0, 0);
+	for (size_t i = 0; i < steeringGroups.size(); i++)
+	{
+		allSteerings += steeringGroups[i];
+	}
+	return allSteerings;
+}
+
 void Agent::AddSteeringGroupsForce(Vector2D force)
 {
 	steeringGroups.push_back(force);

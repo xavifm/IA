@@ -9,11 +9,9 @@ class PriorityQueue : public Agent::SteeringBehavior
 public:
 	PriorityQueue();
 	~PriorityQueue();
-	void PriorityQueue::addForce(Vector2D force, int KforcePriority);
-	Vector2D PriorityQueue::ReturnAcumulatedForcePriority();
-	void PriorityQueue::setPriority(int priority);
-	int PriorityQueue::getPriority();
+	void PriorityQueue::addSteeringBehaviourInPriorityList(Vector2D force, int KforcePriority);
+	Vector2D PriorityQueue::ReturnSteeringForceWithPriority();
 private:
-	Vector2D steeringForceAcumulated;
-	int priorityL;
+	std::vector<Vector2D> steeringForces;
+	std::vector<int> priorityL;
 };

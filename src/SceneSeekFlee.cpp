@@ -6,7 +6,6 @@
 #include "Separation.h"
 #include "cohesion.h"
 #include "PriorityQueue.h"
-#include "SeekVector.h"
 
 using namespace std;
 
@@ -69,39 +68,34 @@ void SceneSeekFlee::update(float dtime, SDL_Event *event)
 
 	for (size_t i = 0; i < agents.size()-1; i++)
 	{
-		PriorityQueue* localSteering1 = new PriorityQueue();
+		Seek* seekOBJ = new Seek();
+		Vector2D seekVector = seekOBJ->calculateSteeringForce(agents[i], dtime);
 
 		Vector2D separationVector = sepVec->calculateSteeringForce(i, agents);
 		Vector2D cohesionVector = cohesionVec->calculateSteeringForce(i, agents);
 		Vector2D alignmentVector = alignVec->calculateSteeringForce(i, agents);
 
-		agents[i]->AddSteeringGroupsForce(separationVector);
-		agents[i]->AddSteeringGroupsForce(cohesionVector);
-		agents[i]->AddSteeringGroupsForce(alignmentVector);
+		agents[i]->AddSteeringGroupsForce(separationVector * 5000);
+		agents[i]->AddSteeringGroupsForce(cohesionVector * 200);
+		agents[i]->AddSteeringGroupsForce(alignmentVector * 0.2f);
 
-		/*localSteering1->addForce(separationVector, 5000);
-		localSteering1->addForce(cohesionVector, 200);
-		localSteering1->addForce(alignmentVector, 0.2f);*/
+		//PRIORITYLIST
+		PriorityQueue* priorityList = new PriorityQueue();
+		priorityList->addSteeringBehaviourInPriorityList(agents[i]->GetAllSteeringGroupsInAVector(), 4700);
+		priorityList->addSteeringBehaviourInPriorityList(seekVector, 1);
 
-		WheightedBlending wBlending;
-		wBlending.calculateSteeringForce(agents[i], 0);
+		Vector2D priorityResult = priorityList->ReturnSteeringForceWithPriority();
+		//_______________________________________________
 
-		/*localSteering1->setPriority(4700);
+		//CLEARING ALL THE CALCULATED STEERINGS FROM THE AGENT
+		agents[i]->ClearSteeringGroupsForce();
+		//____________________________________________________
 
-		PriorityQueue* localSteering2 = new PriorityQueue();
-		SeekVector* seekVector = new SeekVector();
+		//KEEPPING THE PRIORITY LIST RESULT
+		agents[i]->AddSteeringGroupsForce(priorityResult);
+		//________________________________________________
 
-		localSteering2->addForce(seekVector->calculateSeekVector(i, agents), 1);
-
-		localSteering2->setPriority(1);
-
-		int length1 = localSteering1->ReturnAcumulatedForcePriority().Length();
-		int length2 = localSteering2->ReturnAcumulatedForcePriority().Length();
-
-		if (localSteering1->ReturnAcumulatedForcePriority().Length() > localSteering1->getPriority())
-		agents[i]->setBehavior(new WheightedBlending(agents[i], separationVector, cohesionVector, alignmentVector));
-		else if (localSteering2->ReturnAcumulatedForcePriority().Length() > localSteering2->getPriority())
-		agents[i]->setBehavior(new Seek());*/
+		agents[i]->setBehavior(new WheightedBlending());
 	}
 
 

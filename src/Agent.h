@@ -67,6 +67,7 @@ public:
 	int sceneNum;
 	bool enableBypass;
 	std::vector<Vector2D> GetSteeringGroups();
+	Vector2D GetAllSteeringGroupsInAVector();
 	void AddSteeringGroupsForce(Vector2D force);
 	void ClearSteeringGroupsForce();
 	

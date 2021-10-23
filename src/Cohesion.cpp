@@ -23,5 +23,5 @@ Vector2D Cohesion::calculateSteeringForce(int agentIndex, std::vector<Agent*> ag
 	}
 	averagePosition /= neighbourCount;
 	averagePosition -= agents[agentIndex]->getPosition();
-	return Vector2D::Normalize(averagePosition) * KCohesion;
+	return Vector2D::Normalize(averagePosition);
 }
